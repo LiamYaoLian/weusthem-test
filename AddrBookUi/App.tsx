@@ -6,7 +6,7 @@ import {ContactList} from "./contactlist";
 export default function App() {
   return (
     <View style={styles.container}>
-      <AddrCard/>
+      {/*<AddrCard/>*/}
       <ContactList/>
     </View>
   );
