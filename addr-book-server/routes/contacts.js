@@ -2,14 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact');
 
-router.get('/', function (req, res) {
+router.get('/',  async (req, res) => {
   // TODO
-  const contacts = []
-  Contact.find({}, (err, contact) => {
-    //console.log(contact)
-    contacts.push(contact)
-    console.log(contacts)
-  })
+  const contacts = await Contact.find({})
+  console.log(contacts)
+
   res.json({
     status: 200,
     data: contacts
