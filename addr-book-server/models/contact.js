@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 
 var ContactSchema = new Schema({
   id: Schema.Types.ObjectId,
-  firstName: {type: String, required: true},
-  lastName: {type: String, required: true},
-  email: {type: String, required: true},
-  phoneNumber: {type: String, required: true},
+  firstName: {type: String},
+  lastName: {type: String},
+  email: {type: String},
+  phoneNumber: {type: String},
 });
 
 // Export model.
