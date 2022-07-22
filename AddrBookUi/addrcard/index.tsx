@@ -7,8 +7,11 @@ import FormBuilder from 'react-native-paper-form-builder/dist/FormBuilder';
 export const AddrCard = () => {
   const {control, setFocus, handleSubmit} = useForm({
     defaultValues: {
+      firstName: '',
+      lastName: '',
       email: '',
-      password: '',
+      phoneNumber: '',
+
     },
     mode: 'onChange',
   });
@@ -71,12 +74,16 @@ export const AddrCard = () => {
             {
               type: 'text',
               name: 'phoneNumber',
-
               rules: {
                 required: {
                   value: true,
                   message: 'required',
-                }
+                },
+                pattern: {
+                  value:
+                    /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+                  message: 'Phone number is invalid',
+                },
               },
               textInputProps: {
                 label: 'Phone Number',
@@ -102,7 +109,7 @@ const styles = StyleSheet.create({
   },
   scrollViewStyle: {
     flex: 1,
-    // padding: 15,
+    padding: 15,
     justifyContent: 'center',
   },
   headingStyle: {
