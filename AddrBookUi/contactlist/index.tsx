@@ -6,18 +6,13 @@ const axios = require('axios');
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const testUrl = `${apiUrl}/contacts/1`
-
-// TODO
-axios.get(`${apiUrl}/contacts/1`)
+axios.get(`${apiUrl}/contacts`)
   .then(function (response: AxiosResponse) {
     // handle success
     console.log(response.data);
   })
   .catch(function (error: AxiosError) {
     // handle error
-    console.log(apiUrl);
-    console.log(testUrl);
     console.log(error);
   })
   .then(function () {

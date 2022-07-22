@@ -3,6 +3,10 @@ import {View, StyleSheet, ScrollView, Text} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {Button} from 'react-native-paper';
 import FormBuilder from 'react-native-paper-form-builder/dist/FormBuilder';
+import {AxiosError, AxiosResponse} from "axios";
+const axios = require('axios');
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const AddrCard = () => {
   const {control, setFocus, handleSubmit} = useForm({
@@ -95,6 +99,15 @@ export const AddrCard = () => {
           mode={'contained'}
           onPress={handleSubmit((data: any) => {
             console.log('form data', data);
+            axios.post(`${apiUrl}/contacts/create`, {
+              ...data
+            })
+              .then(function (response: AxiosResponse) {
+                console.log(response.data);
+              })
+              .catch(function (error: AxiosError) {
+                console.log(error);
+              });
           })}>
           Submit
         </Button>
